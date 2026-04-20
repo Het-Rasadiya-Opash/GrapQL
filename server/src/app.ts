@@ -33,7 +33,7 @@ app.use(morgan("dev"));
 
 const isAdmin = (req: Request, res: Response, next: NextFunction) => {
   const user = {
-    role: "user",
+    role: "admin",
   };
   if (user.role === "admin") next();
   else res.send("Not Access");
