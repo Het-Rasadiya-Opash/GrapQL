@@ -1,5 +1,5 @@
 
- export default class HttpError extends Error {
+export default class HttpError extends Error {
   constructor(
     public statusCode: number,
     public message: string,
@@ -12,6 +12,3 @@
     }
   }
 }
-
-false
-

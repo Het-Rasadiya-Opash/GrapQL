@@ -1,27 +1,13 @@
 import { ApolloServer } from "@apollo/server";
-import { graphQLSchema } from "./schema/schema.js";
 import { graghQLResolver } from "./resolver/resolver.js";
-import { startStandaloneServer } from "@apollo/server/standalone";
+import { graphQLSchema } from "./schema/schema.js";
 
-export const connectGraphQL = (port: number, envMode: string) => {
+export const connectGraphQL = () => {
   const server = new ApolloServer({
     typeDefs: graphQLSchema,
     resolvers: graghQLResolver,
   });
 
-  startStandaloneServer(server, {
-    listen: {
-      port,
-    },
-  })
-    .then(() => {
-      console.log(
-        `Server is Working on Port:` + port + `in` + envMode + `Mode.`,
-      );
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
+ 
   return server;
 };
